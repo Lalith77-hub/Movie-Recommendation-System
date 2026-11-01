@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About CineMatch AI</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        .about-page {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 25px;
+            background: radial-gradient(circle at top, #172554 0%, transparent 65%);
+        }
+
+        .about-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .about-section {
+    background: linear-gradient(135deg, #172554, #1e293b);
+    border: 1px solid #334155;
+    padding: 28px;
+    margin-bottom: 24px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.about-section:hover {
+    transform: translateY(-4px);
+    border-color: #38bdf8;
+}
+
+        .about-section h2 {
+            color: #60a5fa;
+            margin-bottom: 12px;
+        }
+
+        .about-section p,
+        .about-section li {
+            color: #d1d5db;
+            line-height: 1.8;
+        }
+
+        .about-section ul {
+            padding-left: 25px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: #60a5fa;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="about-page">
+
+        <a href="/" class="back-link">← Back to Home</a>
+
+        <div class="about-heading">
+            <h1>About <span>CineMatch AI</span></h1>
+            <p>Your intelligent movie discovery platform</p>
+        </div>
+
+        <section class="about-section">
+            <h2>1. Project Overview</h2>
+            <p>
+                CineMatch AI is a machine learning based movie recommendation
+                system designed to help users discover movies based on their
+                interests. Users can search for a movie and receive
+                recommendations for similar movies.
+            </p>
+        </section>
+
+        <section class="about-section">
+            <h2>2. How Does It Work?</h2>
+            <p>
+                The system uses content-based filtering to recommend movies.
+                It analyses movie information such as titles, descriptions,
+                genres, languages and keywords to identify similarities.
+            </p>
+            <ul>
+                <li>Users enter a movie title.</li>
+                <li>The system finds the selected movie in the dataset.</li>
+                <li>TF-IDF converts movie information into numerical vectors.</li>
+                <li>Cosine similarity calculates how similar movies are.</li>
+                <li>The system displays the top recommended movies.</li>
+            </ul>
+        </section>
+
+        <section class="about-section">
+            <h2>3. Machine Learning Algorithms</h2>
+            <ul>
+                <li><strong>TF-IDF:</strong> Converts text information into numerical features.</li>
+                <li><strong>Cosine Similarity:</strong> Measures similarity between movie feature vectors.</li>
+                <li><strong>Content-Based Filtering:</strong> Recommends movies based on their content.</li>
+            </ul>
+        </section>
+
+        <section class="about-section">
+            <h2>4. Technologies Used</h2>
+            <ul>
+                <li>Python</li>
+                <li>Pandas and NumPy</li>
+                <li>Scikit-learn</li>
+                <li>Flask</li>
+                <li>HTML and CSS</li>
+                <li>TMDB API for movie posters and information</li>
+                <li>Matplotlib for data visualization</li>
+            </ul>
+        </section>
+
+        <section class="about-section">
+            <h2>5. Dataset Information</h2>
+            <p>
+                CineMatch AI uses a movie dataset containing Indian and
+                worldwide movies. The dataset includes movie titles,
+                languages, genres, descriptions, ratings, keywords and
+                release dates.
+            </p>
+        </section>
+
+        <section class="about-section">
+            <h2>6. Key Features</h2>
+            <ul>
+                <li>Movie search functionality</li>
+                <li>AI-based movie recommendations</li>
+                <li>Indian movie recommendations for Indian searches</li>
+                <li>Movie posters and ratings</li>
+                <li>Analytics dashboard with five visualizations</li>
+                <li>Simple and user-friendly interface</li>
+            </ul>
+        </section>
+
+    </div>
+
+</body>
+</html>

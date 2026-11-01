@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMatch AI | Movie Recommendations</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">🎬 CineMatch <span>AI</span></div>
+       <nav>
+    <a href="/">Home</a>
+    <a href="#recommendations">Recommendations</a>
+    <a href="/analytics">Analytics</a>
+    <a href="about">About</a>
+</nav>
+    </header>
+
+    <section class="hero">
+        <h1>Discover Your Next <span>Favourite Movie</span></h1>
+        <p>AI-powered movie recommendations based on your taste.</p>
+
+        <form action="/" method="POST" class="search-box">
+            <input
+                type="text"
+                name="movie_name"
+                placeholder="Search a movie... e.g. Kantara, Avatar"
+                value="{{ movie_name or '' }}"
+                required
+            >
+            <button type="submit">Search Movies</button>
+        </form>
+    </section>
+
+    {% if error %}
+        <div class="message">{{ error }}</div>
+    {% endif %}
+
+    {% if recommendations %}
+    <section class="recommendations" id="recommendations">
+        <h2>Movies Similar to <span>{{ searched_movie }}</span></h2>
+
+        <div class="movie-grid">
+            {% for movie in recommendations %}
+            <div class="movie-card">
+
+                {% if movie.poster %}
+                    <img src="{{ movie.poster }}" alt="{{ movie.title }} poster">
+                {% else %}
+                    <div class="poster-placeholder">🎬</div>
+                {% endif %}
+
+                <div class="movie-info">
+                    <h3>{{ movie.title }}</h3>
+                    <p>⭐ {{ movie.rating }}</p>
+                    <p>Language: {{ movie.language }}</p>
+                    <p>Similarity: {{ movie.similarity }}%</p>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+
+    <section class="about" id="about">
+        <h2>About CineMatch AI</h2>
+        <p>
+            CineMatch AI is a machine learning based movie recommendation
+            system that uses TF-IDF and cosine similarity to find movies
+            similar to your interests.
+        </p>
+    </section>
+
+    <footer>
+        <p>© 2026 CineMatch AI | Powered by Machine Learning</p>
+    </footer>
+
+</body>
+</html>

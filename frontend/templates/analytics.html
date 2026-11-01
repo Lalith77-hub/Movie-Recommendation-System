@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMatch AI - Analytics</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        .analytics-container {
+            width: 100%;
+            max-width: 100%;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 5%;
+            box-sizing: border-box;
+
+            background:
+                radial-gradient(circle at top, #172554 0%, transparent 65%),
+                linear-gradient(135deg, #111b3a, #0f172a);
+        }
+
+        .analytics-heading {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .analytics-heading h1 {
+            font-size: 36px;
+            color: #ffffff;
+        }
+
+        .analytics-heading h1 span {
+            color: #38bdf8;
+        }
+
+        .analytics-heading p {
+            color: #cbd5e1;
+            font-size: 17px;
+        }
+
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .graph-card {
+            background: linear-gradient(135deg, #172554, #1e293b);
+            border: 1px solid #334155;
+            padding: 22px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .graph-card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+        }
+
+        .graph-card h2 {
+            color: #60a5fa;
+            font-size: 20px;
+            margin-bottom: 18px;
+        }
+
+        .graph-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Center the fifth graph */
+        .graph-card:last-child {
+            grid-column: 1 / -1;
+            width: 50%;
+            justify-self: center;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: #60a5fa;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .back-link:hover {
+            color: #38bdf8;
+        }
+
+        @media (max-width: 700px) {
+            .analytics-container {
+                padding: 25px 18px;
+            }
+
+            .analytics-heading h1 {
+                font-size: 27px;
+            }
+
+            .analytics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .graph-card:last-child {
+                grid-column: auto;
+                width: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="analytics-container">
+
+        <a href="/" class="back-link">← Back to Home</a>
+
+        <div class="analytics-heading">
+            <h1>CineMatch <span>AI</span> Analytics</h1>
+            <p>Explore insights from our movie dataset</p>
+        </div>
+
+        <div class="analytics-grid">
+
+            <div class="graph-card">
+                <h2>Top 10 Highest Rated Movies</h2>
+                <img src="{{ url_for('static', filename='graphs/top_10_highest_rated_movies.png') }}" alt="Top rated movies">
+            </div>
+
+            <div class="graph-card">
+                <h2>Movies Released Per Year</h2>
+                <img src="{{ url_for('static', filename='graphs/movies_released_per_year.png') }}" alt="Movies released per year">
+            </div>
+
+            <div class="graph-card">
+                <h2>Genre Distribution</h2>
+                <img src="{{ url_for('static', filename='graphs/genre_distribution.png') }}" alt="Genre distribution">
+            </div>
+
+            <div class="graph-card">
+                <h2>Language Distribution</h2>
+                <img src="{{ url_for('static', filename='graphs/language_distribution.png') }}" alt="Language distribution">
+            </div>
+
+            <div class="graph-card">
+                <h2>Rating Distribution</h2>
+                <img src="{{ url_for('static', filename='graphs/rating_distribution.png') }}" alt="Rating distribution">
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
